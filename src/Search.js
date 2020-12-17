@@ -34,7 +34,8 @@ export default class Search extends Component {
   render() {
     const { query, books } = this.state
 
-    const filteredBooks = query !== "" ? books.filter(b => (b.hasOwnProperty("authors")) && (b.hasOwnProperty("imageLinks"))): []
+
+    const filteredBooks = query !== "" ? [...books].filter(b => (b.hasOwnProperty("authors")) && (b.hasOwnProperty("imageLinks"))): []
 
     return (
       <ErrorBoundary>

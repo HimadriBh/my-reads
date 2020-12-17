@@ -8,6 +8,7 @@ import Select from 'react-select';
       {label: "None", value: "none"},
     ]
 
+
 export default class Menu extends React.Component {
   state = {
     selectedOption: null,
@@ -18,14 +19,23 @@ export default class Menu extends React.Component {
     this.props.onSelect(selectedOption);
 
   };
+
   render() {
     const { selectedOption } = this.state;
+
+    const selectedOptions = options.map(option => {
+      if(options.value === this.props.shelf){
+         option.label = "\u2713" + option.label
+      }
+      return option
+    })
+
 
     return (
       <Select
         value={selectedOption}
         onChange={this.handleChange}
-        options={options}
+        options={selectedOptions}
       />
     );
   }

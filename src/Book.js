@@ -21,7 +21,7 @@ export default class Book extends Component {
   }
 
   render() {
-    const {imageLinks, title, authors } = this.props.book
+    const {imageLinks, title, authors, shelf } = this.props.book
     if(authors === "undefined" || imageLinks === "undefined"){
       throw new Error("Something went wrong, Search again!")
     }
@@ -30,7 +30,7 @@ export default class Book extends Component {
         <div className="book-image" onClick={this.handleClick}>
           <img src={imageLinks.smallThumbnail}  alt="book cover" />
           <span className="btn">v</span>
-          {this.state.showMenu && (<Menu onSelect={this.handleSelect} />)}
+          {this.state.showMenu && (<Menu onSelect={this.handleSelect} shelf={shelf} />)}
         </div>
         <h5 className="book-title">{title}</h5>
         {authors.map((a, index) => (
