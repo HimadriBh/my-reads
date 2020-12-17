@@ -8,9 +8,9 @@ export default class Books extends Component {
         <h1>{title}</h1>
         <hr />
         <ul className="books-list">
-          {books.map((book, index) => (
-            <li key={index}>
-              <Book book={book}/>
+          {books.map((book) => (
+            <li key={book.id}>
+              <Book book={book} />
             </li>
           ))}
         </ul>

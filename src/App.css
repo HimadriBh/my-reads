@@ -15,6 +15,23 @@ header{
 main{
   margin: 20px;
   background-color: lightgrey;
+  /* position: relative; */
+}
+
+.app-button{
+  position:fixed;
+  bottom: 20%;
+  right: 10%;
+  /* padding: 5px 20px 5px; */
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  /* font-weight: 500; */
+  color: white;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: green;
 }
 
 ul{
@@ -28,6 +45,7 @@ ul{
 .books-list{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 10px;
 }
 
@@ -42,7 +60,7 @@ ul{
   position: relative;
 }
 
-.book img {
+.book-image {
   align-self: center;
 }
 
@@ -50,8 +68,56 @@ ul{
   word-wrap: break-word;
 }
 
+.btn{
+  padding: 0px 8px 3px;
+  width: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: green;
+}
+
 .book-shelf-changer{
   position: absolute;
-  bottom: 80px;
-  right: 80px;
+  top: 3.50em;
+  right: 3.0em;
+}
+
+/* search page css */
+.search {
+  padding-top: 60px;
+}
+.search-books-top {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid #d5d8df;
+  display: flex;
+}
+
+
+.search-books{
+  width: 100%;
+  padding: 20px 20px 20px 60px;
+  background-image: url('./icons/search.svg');
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 1.2em;
+  font-size: 1.2em;
+  border: 0;
+  outline: none;
+}
+
+.close-search {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-image: url('./icons/arrow-back.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  font-size: 0;
 }
