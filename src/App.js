@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import { Component } from 'react';
+import * as BooksAPI from './BooksAPI'
+import Books from "./Books";
 import './App.css';
 
-function App() {
-  return (
+class App extends Component {
+  state = {
+    books: [],
+    // currentlyReading: [],
+    // wantToRead: [],
+    // read: []
+  }
+  componentDidMount() {
+    BooksAPI.getAll()
+      .then(books => {
+        this.setState({
+          books
+        })
+      })
+  }
+
+  filterBooksByShelf = (shelf) => {
+    return this.state.books.filter(book => book.shelf === shelf)
+  }
+
+ render() {
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>MyReads</h1>
       </header>
+      <Books books={this.filterBooksByShelf("currentlyReading")} title={"Currently Reading"} />
+      <Books books={this.filterBooksByShelf("wantToRead")} title={"Want To Read"} />
+      <Books books={this.filterBooksByShelf("read")} title={"Read"} />
     </div>
   );
+ }
 }
 
 export default App;
